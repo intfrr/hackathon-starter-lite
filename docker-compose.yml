@@ -1,0 +1,20 @@
+api:
+  image: uptownhr/hackable
+  volumes:
+  - ./:/api
+  - /tmp/node_modules:/api/node_modules
+  working_dir: /api
+  command: yarn dev-docker
+  links:
+  - redis
+  - mongo
+  environment:
+  - MONGODB=mongodb://mongo:27017/hackable
+  - REDIS=redis://redis:6379
+  ports:
+  - 3000:3000
+
+mongo:
+  image: mongo
+redis:
+  image: redis

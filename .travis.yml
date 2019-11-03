@@ -1,0 +1,13 @@
+language: node_js
+sudo: false
+
+services:
+  - mongodb
+  - redis
+
+node_js:
+  - "6.2.0"
+
+branches:
+  only:
+    - master
